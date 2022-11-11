@@ -29,11 +29,17 @@ const Todo = () => {
 
     const handleClick = () => {
 
-        setItems((prev) => [...prev, { name: text }])
+        setItems((prev) => [...prev, { name: text }]);
+
+        setText('')
     }
     return (
         <>
-            <input value={text} onChange={handleChange} />
+            <label>
+                Text
+                <input value={text}
+                    onChange={handleChange} />
+            </label>
 
             <button onClick={handleClick} >Add todo</button>
 
