@@ -5,6 +5,8 @@ import Todo from './Components/Todo';
 
 //surge lib is added to project
 
+//this project added to deploy surge
+
 function App() {
   return (
     <div className="App">
