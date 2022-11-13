@@ -20,11 +20,11 @@ const messages: any = {
 
   'tr-TR': {
     title: 'Merhaba dünya',
-    description: '3 yeni mesajınız var'
+    description: '{count} yeni mesajınız var'
   },
   'en-US': {
     title: 'Hello world',
-    description: 'You have 3 unreading messages'
+    description: 'You have {count} unreading messages'
   }
 }
 
@@ -48,7 +48,7 @@ function App() {
       <div className="App">
         <FormattedMessage id='title' />
         <p>
-          <FormattedMessage id='description' />
+          <FormattedMessage id='description' values={{count: 5}}/>
         </p>
 
         {/* <Counter /> */}
