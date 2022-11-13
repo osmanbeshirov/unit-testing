@@ -16,21 +16,34 @@ import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl'
 //1. react intl package installed
 //2. react intl imports added
 
-const messages = {
-  title: 'Merhaba dünya'
+const messages: any = {
+
+  'tr-TR': {
+    title: 'Merhaba dünya',
+    description: '3 yeni mesajınız var'
+  },
+  'en-US': {
+    title: 'Hello world',
+    description: 'You have 3 unreading messages'
+  }
 }
 
 function App() {
+  const [lang, setLang] = useState('tr-TR')
   return (
-    <IntlProvider messages={messages} locale="fr" defaultLocale="en">
+    <IntlProvider messages={messages[lang]} locale="fr" defaultLocale="en">
       <div className="App">
         <FormattedMessage id='title' />
+        <p>
+          <FormattedMessage id='description' />
+        </p>
+
         {/* <Counter /> */}
 
-        <button>TR</button>
-        <button>EN</button>
+        <button onClick={() => setLang('tr-TR')}>TR</button>
+        <button onClick={() => setLang('en-US')}>EN</button>
 
-        <Todo />
+        {/* <Todo /> */}
       </div>
     </IntlProvider>
   );
