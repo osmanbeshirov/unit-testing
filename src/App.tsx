@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Counter from './Components/Counter';
 import Todo from './Components/Todo';
+import { useState } from 'react'
 
 import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl'
 
@@ -23,8 +24,11 @@ function App() {
   return (
     <IntlProvider messages={messages} locale="fr" defaultLocale="en">
       <div className="App">
-       <FormattedMessage id='title'/>
+        <FormattedMessage id='title' />
         {/* <Counter /> */}
+
+        <button>TR</button>
+        <button>EN</button>
 
         <Todo />
       </div>
