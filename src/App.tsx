@@ -10,6 +10,7 @@ import Todo from './Components/Todo';
 //this project added to deploy surge
 
 
+//1. react intl package installed
 
 function App() {
   return (
