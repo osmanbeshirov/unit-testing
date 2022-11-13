@@ -3,7 +3,7 @@ import './App.css';
 import Counter from './Components/Counter';
 import Todo from './Components/Todo';
 
-import {IntlProvider, FormattedMessage, FormattedNumber} from 'react-intl'
+import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl'
 
 //surge lib is added to project
 
@@ -15,13 +15,20 @@ import {IntlProvider, FormattedMessage, FormattedNumber} from 'react-intl'
 //1. react intl package installed
 //2. react intl imports added
 
+const messages = {
+  title: 'Merhaba dünya'
+}
+
 function App() {
   return (
-    <div className="App">
-      {/* <Counter /> */}
+    <IntlProvider messages={messages} locale="fr" defaultLocale="en">
+      <div className="App">
+       <FormattedMessage id='title'/>
+        {/* <Counter /> */}
 
-      <Todo />
-    </div>
+        <Todo />
+      </div>
+    </IntlProvider>
   );
 }
 
