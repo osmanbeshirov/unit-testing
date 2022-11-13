@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Counter from './Components/Counter';
 import Todo from './Components/Todo';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { IntlProvider, FormattedMessage, FormattedNumber } from 'react-intl'
 
@@ -29,9 +29,22 @@ const messages: any = {
 }
 
 function App() {
-  const [lang, setLang] = useState('tr-TR')
+
+  const isLocale = localStorage.getItem("locale")
+
+  const defaultLocale = isLocale ? isLocale : navigator.language;
+
+  const [locale, setLocale] = useState(defaultLocale)
+
+
+
+  useEffect(() => {
+    localStorage.setItem('locale', locale)
+  }, [locale])
+
+
   return (
-    <IntlProvider messages={messages[lang]} locale="fr" defaultLocale="en">
+    <IntlProvider messages={messages[locale]} locale={locale} >
       <div className="App">
         <FormattedMessage id='title' />
         <p>
@@ -40,8 +53,8 @@ function App() {
 
         {/* <Counter /> */}
 
-        <button onClick={() => setLang('tr-TR')}>TR</button>
-        <button onClick={() => setLang('en-US')}>EN</button>
+        <button onClick={() => setLocale('tr-TR')}>TR</button>
+        <button onClick={() => setLocale('en-US')}>EN</button>
 
         {/* <Todo /> */}
       </div>
